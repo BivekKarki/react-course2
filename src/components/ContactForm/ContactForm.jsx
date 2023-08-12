@@ -24,8 +24,34 @@ const ContactForm = () => {
               text = "VIA EMAIL"
               icon = {<HiMail fontSize="24px" />}
             />
+            <form>
+              <div className={styles.form_control}>
+                <label htmlFor="name">Name</label>
+                <input type='text'name='name'/>
+              </div>
+              <div className={styles.form_control}>
+                <label htmlFor="email">Email</label>
+                <input type='email'name='email'/>
+              </div>
+              <div className={styles.form_control}>
+                <label htmlFor="text">Text</label>
+                <textarea type='text'name='text' rows="8"/>
+              </div>
+              <div style={{
+                display: "flex",
+                justifyContent: "flex-end"
+                }}>
+                <Button 
+                isOutline = {false}
+                text = "SUBMIT BUTTON"
+                />
+              </div>
+              
+            </form>
         </div>
-        <div className={styles.contact_image}></div>
+        <div className={styles.contact_image}>
+          <img src='/images/Service 24_7-pana 1.svg' alt='image' />
+        </div>
       </section>
     </>
   )
