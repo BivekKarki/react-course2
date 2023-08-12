@@ -3,7 +3,31 @@ import styles from './Contact.module.css'
 import { MdMessage } from 'react-icons/md'
 import {FaPhoneAlt} from 'react-icons/fa'
 import {HiMail} from 'react-icons/hi'
+import { useState } from 'react'
 const ContactForm = () => {
+
+  const [name, setName] = useState("BIvekk");
+  const [email, setEmail] = useState("bivek@gmail.com");
+  const [text, setText] = useState("Hello world");
+
+
+  const onViaCallSubmit = ()=> {
+    console.log("I am from call");
+  }
+
+  const onSubmit = (event)=> {
+    event.preventDefault();
+
+    setName(event.target[0].value);
+    setEmail(event.target[1].value);
+    setText(event.target[2].value);
+
+    console.log("name: ",event.target[0].value);
+    console.log("email: ",event.target[1].value);
+    console.log("text: ",event.target[2].value);
+
+  }
+
   return (
     <>
       <section className={styles.container}>
@@ -14,6 +38,7 @@ const ContactForm = () => {
               icon = {<MdMessage fontSize="24px" />}
             />
             <Button
+              onClick = {onViaCallSubmit}
               text = "VIA CALL"
               icon = {<FaPhoneAlt fontSize="24px" />}
             />
@@ -24,7 +49,7 @@ const ContactForm = () => {
               text = "VIA EMAIL"
               icon = {<HiMail fontSize="24px" />}
             />
-            <form>
+            <form onSubmit={onSubmit}>
               <div className={styles.form_control}>
                 <label htmlFor="name">Name</label>
                 <input type='text'name='name'/>
@@ -46,7 +71,9 @@ const ContactForm = () => {
                 text = "SUBMIT BUTTON"
                 />
               </div>
-              
+              <div>
+                {name + " " + email + " " + text}
+              </div>
             </form>
         </div>
         <div className={styles.contact_image}>

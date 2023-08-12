@@ -39,6 +39,10 @@
     padding: 0 10px;
     font-size: 14px;
 }
+.form_control textarea{
+    padding: 8px;
+}
+
 .contact_image img{
     width: 100%;
 }
